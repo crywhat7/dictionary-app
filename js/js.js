@@ -133,11 +133,7 @@ function toogleAudio() {
 
 function toggleDarkMode() {
   const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  console.log({ darkMode });
-
   changeVariables(darkMode);
-
-  // Cambiar las variables
 }
 function changeVariables(darkMode) {
   const root = document.querySelector(':root');
