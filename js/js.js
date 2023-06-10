@@ -47,6 +47,7 @@ const wordTitle = document.querySelector('.title-phonetics .primary-title');
 const phonetic = document.querySelector('.title-phonetics .phonetic');
 const btnReproducir = document.querySelector('.sound-titles .btn-reproducir');
 const audio = document.querySelector('.sound-titles .audio');
+const source = document.querySelector('.footer-titles p a');
 
 formulario?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -103,14 +104,17 @@ function getMeaning(word = 'hello') {
 }
 
 function mapearResultados(result) {
-  const { word, phonetics, meanings } = result;
+  console.log({ result });
+  const { word, phonetics, meanings, sourceUrls } = result;
   const phonetic = phonetics.find((p) => p.text);
   const audio = phonetics.find((p) => p.audio);
+  const sourceUrl = sourceUrls?.find((s) => s);
   res = {
     word,
     phonetic: phonetic?.text ?? '',
     audio: audio?.audio ?? '',
     meanings: meanings ?? [],
+    source: sourceUrl,
   };
   render();
 }
@@ -119,6 +123,8 @@ function render() {
   phonetic.textContent = res.phonetic;
   wordTitle.textContent = res.word;
   audio.src = res.audio;
+  source.textContent = res.source;
+  source.href = res.source;
 }
 
 function toogleAudio() {

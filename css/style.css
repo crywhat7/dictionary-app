@@ -89,8 +89,17 @@ input[type='text']:hover {
   background-color: var(--secondaryGrey);
 }
 
-#footerTitles {
+.footer-titles {
   font-size: 14px;
+  color: var(--titleSecondaryColor);
+}
+
+.footer-titles a {
+  color: var(--titleSecondaryColor);
+  text-decoration: none;
+}
+
+.footer-titles a:visited {
   color: var(--titleSecondaryColor);
 }
 
