@@ -8,6 +8,11 @@ let res;
 const formulario = document.querySelector('.busqueda');
 const btnSearch = document.querySelector('.busqueda i');
 
+const wordTitle = document.querySelector('.title-phonetics .primary-title');
+const phonetic = document.querySelector('.title-phonetics .phonetic');
+const btnReproducir = document.querySelector('.sound-titles .btn-reproducir');
+const audio = document.querySelector('.sound-titles .audio');
+
 formulario?.addEventListener('submit', (e) => {
   e.preventDefault();
   const formData = new FormData(formulario);
@@ -33,6 +38,10 @@ formulario?.addEventListener('submit', (e) => {
 
 btnSearch?.addEventListener('click', () => {
   formulario?.dispatchEvent(new Event('submit'));
+});
+
+btnReproducir?.addEventListener('click', () => {
+  toogleAudio();
 });
 
 function getMeaning(word = 'hello') {
@@ -69,6 +78,23 @@ function mapearResultados(result) {
     meanings: meanings ?? [],
   };
   console.log(res);
+  render();
+}
+
+function render() {
+  phonetic.textContent = res.phonetic;
+  wordTitle.textContent = res.word;
+  audio.src = res.audio;
+}
+
+function toogleAudio() {
+  if (!audio) return;
+
+  if (audio.paused) {
+    audio.play();
+    return;
+  }
+  audio.pause();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
