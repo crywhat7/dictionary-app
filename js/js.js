@@ -3,16 +3,16 @@ let firstResult;
 let error = false;
 let res;
 
-// const formulario = document.querySelector('#formulario');
+const formulario = document.querySelector('.busqueda');
 
-// formulario?.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const formData = new FormData(formulario);
+formulario?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(formulario);
 
-//   const word = formData?.get('word');
-//   if (!word) return;
-//   getMeaning(word);
-// });
+  const word = formData?.get('word');
+  if (!word) return;
+  getMeaning(word);
+});
 
 function getMeaning(word = 'hello') {
   const url = `${API_URL}${word}`;
