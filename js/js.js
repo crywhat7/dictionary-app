@@ -1,3 +1,38 @@
+const COLORES = {
+  mainBgColor: {
+    light: '#fff',
+    dark: '#181818',
+  },
+  titlePrimaryColor: {
+    light: '#000',
+    dark: '#fff',
+  },
+  primaryPurple: {
+    light: '#a645eb',
+    dark: '#a645eb',
+  },
+  secondaryPurple: {
+    light: '#eacff9',
+    dark: '#eacff9',
+  },
+  tertiaryPurple: {
+    light: '#9e6ecb',
+    dark: '#9e6ecb',
+  },
+  primaryGrey: {
+    light: '#e2e2e2',
+    dark: '#1b1b1b',
+  },
+  secondaryGrey: {
+    light: '#d6d6d6',
+    dark: '#2b2b2b',
+  },
+  fontFamily: {
+    light: "'Lora', serif",
+    dark: "'Lora', serif",
+  },
+};
+
 const API_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const validator = /^[a-zA-Z]+$/;
 
@@ -77,7 +112,6 @@ function mapearResultados(result) {
     audio: audio?.audio ?? '',
     meanings: meanings ?? [],
   };
-  console.log(res);
   render();
 }
 
@@ -97,6 +131,28 @@ function toogleAudio() {
   audio.pause();
 }
 
+function toggleDarkMode() {
+  const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  console.log({ darkMode });
+
+  changeVariables(darkMode);
+
+  // Cambiar las variables
+}
+function changeVariables(darkMode) {
+  const root = document.querySelector(':root');
+  const color = darkMode ? 'dark' : 'light';
+  const variables = Object.keys(COLORES);
+  variables.forEach((variable) => {
+    root.style.setProperty(`--${variable}`, COLORES[variable][color]);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   getMeaning();
+  toggleDarkMode();
+});
+
+window.matchMedia('(prefers-color-scheme: dark)')?.addListener(function (e) {
+  toggleDarkMode();
 });

@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
-  --main-bg-color: #fff;
-  --title-primary-color: #000;
-  --primary-purple: #a645eb;
-  --secondary-purple: #eacff9;
-  --tertiary-purple: #9e6ecb;
-  --primary-grey: #a5a5a5;
-  --secondary-grey: #e7e7e7;
-  --font-family: 'Lora', serif;
+  --mainBgColor: #fff;
+  --titlePrimaryColor: #000;
+  --titleSecondaryColor: #707070;
+  --primaryPurple: #a645eb;
+  --secondaryPurple: #eacff9;
+  --tertiaryPurple: #9e6ecb;
+  --primaryGrey: #e2e2e2;
+  --secondaryGrey: #d6d6d6;
+  --fontFamily: 'Lora', serif;
 }
 
 * {
-  background-color: var(--main-bg-color);
+  background-color: var(--mainBgColor);
+  transition: all 0.3s ease-in-out;
 }
 body.content {
   width: 60vw;
   margin: 1rem auto;
-  font-family: var(--font-family);
+  font-family: var(--fontFamily);
 }
 
 .icon-container {
@@ -52,14 +54,14 @@ body.content {
   box-sizing: border-box;
   padding: 0.5rem;
   transition: all 0.2s ease-in;
-  color: var(--tertiary-purple);
+  color: var(--tertiaryPurple);
 }
 
 .busqueda .btn-buscar:hover {
   cursor: pointer;
   transition: all 0.3s ease-out;
-  color: var(--primary-purple);
-  background-color: var(--secondary-purple);
+  color: var(--primaryPurple);
+  background-color: var(--secondaryPurple);
 }
 
 input[type='text'] {
@@ -69,28 +71,29 @@ input[type='text'] {
   font-size: medium;
   border: none;
   outline: none;
-  background-color: #f0f0f0;
+  background-color: var(--primaryGrey);
+  color: var(--titlePrimaryColor);
   font-weight: bold;
   border-radius: 18px;
-  font-family: var(--font-family);
+  font-family: var(--fontFamily);
   transition: all 0.3s ease-in-out;
 }
 
 input[type='text']:focus {
-  background-color: #eeeeee;
+  background-color: var(--secondaryGrey);
 }
 
 input[type='text']:hover {
-  background-color: #e6e6e6;
+  background-color: var(--secondaryGrey);
 }
 
 #footerTitles {
   font-size: 14px;
-  color: var(--primary-grey);
+  color: var(--titleSecondaryColor);
 }
 
 .phonetic {
-  color: var(--primary-purple);
+  color: var(--primaryPurple);
 }
 
 .sound-titles {
@@ -105,6 +108,10 @@ input[type='text']:hover {
   margin: 5px;
 }
 
+.primary-title {
+  color: var(--titlePrimaryColor);
+}
+
 .btn-reproducir {
   display: flex;
   justify-content: center;
@@ -112,8 +119,8 @@ input[type='text']:hover {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: var(--secondary-purple);
-  color: var(--primary-purple);
+  background-color: var(--secondaryPurple);
+  color: var(--primaryPurple);
   transition: all 0.3s ease-in-out;
 }
 
@@ -131,20 +138,20 @@ input[type='text']:hover {
 }
 
 .btn-reproducir:hover {
-  background-color: var(--primary-purple);
-  color: var(--secondary-purple);
+  background-color: var(--primaryPurple);
+  color: var(--secondaryPurple);
 }
 
 .btn-reproducir:hover i {
-  color: var(--secondary-purple);
+  color: var(--secondaryPurple);
 }
 
 .fa-play {
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background-color: var(--secondary-purple);
-  color: var(--primary-purple);
+  background-color: var(--secondaryPurple);
+  color: var(--primaryPurple);
 }
 
 .swal2-x-mark {
