@@ -1,9 +1,12 @@
 const API_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+const validator = /^[a-zA-Z]+$/;
+
 let firstResult;
 let error = false;
 let res;
 
 const formulario = document.querySelector('.busqueda');
+const btnSearch = document.querySelector('.busqueda i');
 
 formulario?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -11,7 +14,17 @@ formulario?.addEventListener('submit', (e) => {
 
   const word = formData?.get('word');
   if (!word) return;
+
+  if (!validator.test(word)) {
+    alert('Solo se permiten letras');
+    return;
+  }
+
   getMeaning(word);
+});
+
+btnSearch?.addEventListener('click', () => {
+  formulario?.dispatchEvent(new Event('submit'));
 });
 
 function getMeaning(word = 'hello') {

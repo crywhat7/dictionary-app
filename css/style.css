@@ -39,12 +39,27 @@ body.content {
   padding: 20px 0;
 }
 
-.busqueda i {
+.busqueda .btn-buscar i {
+  background: none;
+}
+
+.busqueda .btn-buscar {
   position: absolute;
   right: 0;
   margin-right: 1rem;
-  color: var(--tertiary-purple);
   background: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in;
+  color: var(--tertiary-purple);
+}
+
+.busqueda .btn-buscar:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  color: var(--primary-purple);
+  background-color: var(--secondary-purple);
 }
 
 input[type='text'] {
