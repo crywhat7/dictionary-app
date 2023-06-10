@@ -16,7 +16,15 @@ formulario?.addEventListener('submit', (e) => {
   if (!word) return;
 
   if (!validator.test(word)) {
-    alert('Solo se permiten letras');
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Solo se permiten letras',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        formulario.reset();
+      }
+    });
     return;
   }
 

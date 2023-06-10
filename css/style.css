@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
   --main-bg-color: #fff;
@@ -8,7 +8,7 @@
   --tertiary-purple: #9e6ecb;
   --primary-grey: #a5a5a5;
   --secondary-grey: #e7e7e7;
-  --font-family: "Lora", serif;
+  --font-family: 'Lora', serif;
 }
 
 * {
@@ -62,7 +62,7 @@ body.content {
   background-color: var(--secondary-purple);
 }
 
-input[type="text"] {
+input[type='text'] {
   flex: 1;
   padding: 16px;
   text-decoration: none;
@@ -76,11 +76,11 @@ input[type="text"] {
   transition: all 0.3s ease-in-out;
 }
 
-input[type="text"]:focus {
+input[type='text']:focus {
   background-color: #eeeeee;
 }
 
-input[type="text"]:hover {
+input[type='text']:hover {
   background-color: #e6e6e6;
 }
 
@@ -126,4 +126,8 @@ input[type="text"]:hover {
   border-radius: 50px;
   background-color: var(--secondary-purple);
   color: var(--primary-purple);
+}
+
+.swal2-x-mark {
+  background: none !important;
 }
